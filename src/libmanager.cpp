@@ -23,7 +23,7 @@
 
 #include "libmanager.h"
 
-namespace LGL {
+namespace ALR {
 
 LibManager::LibManager()
 {
@@ -56,7 +56,7 @@ bool LibManager::passFilter(string fn)
  */
 Library* LibManager::loadFile(string filename)
 {
-    GmStreamDecoder stream(filename,ios::in|ios::binary);
+    GmStreamDecoder stream(filename.c_str(),"wb");
     if (!stream.is_open()) {
         return nullptr;
     }
@@ -136,8 +136,8 @@ Library* LibManager::loadLib(GmStreamDecoder* in)
         act->question = in->readBool();
         act->canApplyTo = in->readBool();
         act->allowRelative = in->readBool();
-        int args = in->read4();
-        for (int k = 0; k < args; k++)
+        unsigned args = in->read4();
+        for (unsigned k = 0; k < args; k++)
         {
             if (k < act->libArguments.size())
             {
@@ -230,7 +230,7 @@ Library* LibManager::loadLgl(GmStreamDecoder* in)
         tags = in->read();
         act->actionKind = (ActionKind) (tags >> 4);
         act->interfaceKind = (InterfaceKind) (tags & 15);
-        for (int k = 0; k < act->libArguments.size(); k++)
+        for (int k = 0; k < in->read(); k++)
         {
             LibArgument* arg = new LibArgument();
             arg->caption = in->readStr1();
@@ -243,7 +243,11 @@ Library* LibManager::loadLgl(GmStreamDecoder* in)
         if (act->actionKind == ACT_CODE && act->execType == EXEC_CODE
                 && act->interfaceKind == INTERFACE_CODE) codeAction = act;
     }
-    //TODO: Fix me
+    //TODO: Fix me, this code needs an image loader so that it knows how to divide up the subimages.
+    //For now just close the input stream.
+    in->close();
+
+    /*
     BufferedImage icons = ImageIO.read(in->getInputStream());
     int i = 0;
     int cc = icons.getWidth() / 24;
@@ -254,7 +258,7 @@ Library* LibManager::loadLgl(GmStreamDecoder* in)
             a->actImage = icons.getSubimage(24 * (i % cc),24 * (i / cc),24,24);
             i++;
         }
-    }
+    }*/
     return lib;
 }
 

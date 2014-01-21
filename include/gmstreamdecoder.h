@@ -24,16 +24,16 @@
 #ifndef GMSTREAMDECODER_H
 #define GMSTREAMDECODER_H
 
+#include <stdio.h>
 #include <iostream>
-#include <fstream>
 using namespace std;
 
-namespace LGL {
+namespace ALR {
 
 class GmStreamDecoder
 {
 public:
-    GmStreamDecoder(string& filename, ios_base::openmode mode = ios_base::in);
+    GmStreamDecoder(const char* filename, const char* mode);
     bool is_open();
     void close();
     void skip(unsigned length);
@@ -46,7 +46,7 @@ public:
     string readStr();
     string readStr1();
 private:
-    ifstream file;
+    FILE* file;
 };
 
 }

@@ -24,7 +24,7 @@
 #ifndef LIBRARY_H
 #define LIBRARY_H
 
-namespace LGL {
+namespace ALR {
 class Library;
 }
 
@@ -35,7 +35,7 @@ class Library;
 using std::string;
 using std::vector;
 
-namespace LGL {
+namespace ALR {
 
 class Library
 {

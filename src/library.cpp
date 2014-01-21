@@ -23,7 +23,7 @@
 
 #include "library.h"
 
-namespace LGL {
+namespace ALR {
 
 Library::Library()
 {

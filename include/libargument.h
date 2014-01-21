@@ -27,7 +27,7 @@
 #include <string>
 using std::string;
 
-namespace LGL {
+namespace ALR {
 
 enum ArgumentKind {
     ARG_EXPRESSION = 0,

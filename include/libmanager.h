@@ -32,7 +32,7 @@
 #include <vector>
 #include <map>
 
-namespace LGL {
+namespace ALR {
 
 class LibManager
 {

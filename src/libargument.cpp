@@ -23,7 +23,7 @@
 
 #include "libargument.h"
 
-namespace LGL {
+namespace ALR {
 
 LibArgument::LibArgument()
 {

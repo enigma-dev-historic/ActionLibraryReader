@@ -23,7 +23,7 @@
 
 #include "libaction.h"
 
-namespace LGL {
+namespace ALR {
 
 LibAction::LibAction()
 {

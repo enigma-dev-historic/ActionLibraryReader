@@ -23,19 +23,19 @@
 
 #include "gmstreamdecoder.h"
 
-namespace LGL {
+namespace ALR {
 
-GmStreamDecoder::GmStreamDecoder(string& filename, ios_base::openmode mode = ios_base::in)
+GmStreamDecoder::GmStreamDecoder(const char* filename, const char* mode)
 {
-    file(filename, mode);
+    file = fopen(filename, mode);
 }
 
 bool GmStreamDecoder::is_open() {
-    return file.is_open();
+    return file != nullptr;
 }
 
 void GmStreamDecoder::close() {
-    file.close();
+    fclose(file);
 }
 
 void GmStreamDecoder::skip(unsigned length) {
@@ -94,7 +94,7 @@ string GmStreamDecoder::readStr() {
 
 string GmStreamDecoder::readStr1() {
     string res;
-    fread(&res, read1(), 1, file);
+    fread(&res, read(), 1, file);
     return res;
 }
 

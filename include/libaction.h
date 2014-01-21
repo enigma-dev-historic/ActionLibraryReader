@@ -24,7 +24,7 @@
 #ifndef LIBACTION_H
 #define LIBACTION_H
 
-namespace LGL {
+namespace ALR {
 class LibAction;
 }
 
@@ -36,7 +36,7 @@ class LibAction;
 using std::string;
 using std::vector;
 
-namespace LGL {
+namespace ALR {
 
 enum ActionKind {
     ACT_NORMAL = 0,
