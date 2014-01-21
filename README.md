@@ -1,7 +1,7 @@
 LGLReader
 =========
 A simple C++11 compliant Library for reading LGL Action Library files. LGL is a simple action library 
-format designed by @mentionIsmAvatar that offers greater compression than the GameMaker LIB format, up to 10 times smaller.
+format designed by @IsmAvatar that offers greater compression than the GameMaker LIB format, up to 10 times smaller.
 Information regarding the specification of this format is available online at http://enigma-dev.org/docs/Wiki/LGL_format
 
 License
