@@ -6,7 +6,7 @@
 
 QT       -= gui
 
-TARGET = LGLReader
+TARGET = ActionLibraryReader
 TEMPLATE = lib
 CONFIG += staticlib C++11
 
