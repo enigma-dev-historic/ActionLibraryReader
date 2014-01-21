@@ -10,5 +10,5 @@ This library is licensed under the GNU GPL v3 License for more information pleas
 
 Building
 -------
-This library was written using Qt Creator 5.2 and compiles with the framework, but does not rely on it. The Library is C++11 
+This library was written using Qt Creator 5.2 and compiles with the framework, but does not rely on it. The library is C++11 
 compliant and can also be built by running GNU make on the directory.
