@@ -1,6 +1,6 @@
 /**
-* @file  libmanager.h
-* @brief Header implementing a class for a Library Manager.
+* @file  gmstreamdecoder.h
+* @brief Header implementing a wrapper class for Game Maker formatted stream decoding.
 *
 * @section License
 *
@@ -21,34 +21,34 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 **/
 
-#ifndef LIBMANAGER_H
-#define LIBMANAGER_H
+#ifndef GMSTREAMDECODER_H
+#define GMSTREAMDECODER_H
 
-#include "gmstreamdecoder.h"
-#include "libaction.h"
-#include "library.h"
-
-#include <string>
-#include <vector>
-#include <map>
+#include <iostream>
+#include <fstream>
+using namespace std;
 
 namespace LGL {
 
-class LibManager
+class GmStreamDecoder
 {
 public:
-    vector<Library*> libs;
-    LibAction* codeAction;
-    LibManager();
-    LibAction* getLibAction(int libraryId, int libActionId);
-    bool passFilter(string fn);
-    Library* loadFile(string filename);
-    Library* loadFile(GmStreamDecoder* in, string filename);
-    Library* loadLib(GmStreamDecoder* in);
-    Library* loadLgl(GmStreamDecoder* in);
-    LibAction* makeCodeAction();
+    GmStreamDecoder(string& filename, ios_base::openmode mode = ios_base::in);
+    bool is_open();
+    void close();
+    void skip(unsigned length);
+    int32_t read();
+    char* read(unsigned length);
+    int32_t read2();
+    int32_t read3();
+    int32_t read4();
+    bool readBool();
+    string readStr();
+    string readStr1();
+private:
+    ifstream file;
 };
 
 }
 
-#endif // LIBMANAGER_H
+#endif // GMSTREAMDECODER_H

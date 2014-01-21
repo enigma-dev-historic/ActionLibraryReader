@@ -16,13 +16,15 @@ SOURCES += \
     src/libaction.cpp \
     src/libargument.cpp \
     src/library.cpp \
-    src/libmanager.cpp
+    src/libmanager.cpp \
+    src/gmstreamdecoder.cpp
 
 HEADERS += \
     include/libaction.h \
     include/libargument.h \
     include/library.h \
-    include/libmanager.h
+    include/libmanager.h \
+    include/gmstreamdecoder.h
 
 unix {
     target.path = /usr/lib

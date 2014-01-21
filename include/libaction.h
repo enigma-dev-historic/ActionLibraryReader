@@ -24,13 +24,17 @@
 #ifndef LIBACTION_H
 #define LIBACTION_H
 
+namespace LGL {
 class LibAction;
+}
 
 #include "library.h"
 #include "libargument.h"
 
 #include <string>
+#include <vector>
 using std::string;
+using std::vector;
 
 namespace LGL {
 
@@ -69,7 +73,7 @@ public:
     int parentId = -1; //Preserves the id when library is unknown
     Library* parent = NULL;
     string name = "";
-    char actImage[];
+    char* actImage;
     bool hidden = false;
     bool advanced = false;
     bool registeredOnly = false;
@@ -83,9 +87,11 @@ public:
     bool allowRelative = false;
     ExecutionKind execType = EXEC_FUNCTION;
     string execInfo = "";
-    LibArgument libArguments[];
+    vector<LibArgument*> libArguments;
 
     LibAction();
+    bool equals(LibAction* obj);
+    int hashCode();
 };
 
 }

@@ -24,7 +24,9 @@
 #ifndef LIBRARY_H
 #define LIBRARY_H
 
+namespace LGL {
 class Library;
+}
 
 #include "libaction.h"
 
@@ -44,6 +46,7 @@ public:
     vector<LibAction*> libActions;
 
     Library();
+    int hashCode();
     LibAction* addLibAction();
     LibAction* getLibAction(int id);
 };

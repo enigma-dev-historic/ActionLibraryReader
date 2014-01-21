@@ -29,4 +29,28 @@ LibAction::LibAction()
 {
 }
 
+int LibAction::hashCode()
+{
+    const int prime = 31;
+    int result = 1;
+    result = prime * result + id;
+    result = prime * result + ((parent == NULL) ? 0 : parent->hashCode());
+    result = prime * result + parentId;
+    return result;
+}
+
+bool LibAction::equals(LibAction* act)
+{
+    if (this == act) return true;
+    if (act == nullptr) return false;
+    if (id != act->id) return false;
+    if (parent == nullptr)
+    {
+        if (act->parent != nullptr) return false;
+    }
+    else if (act->parent != parent) return false;
+    if (parentId != act->parentId) return false;
+    return true;
+}
+
 }

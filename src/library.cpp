@@ -29,6 +29,11 @@ Library::Library()
 {
 }
 
+int Library::hashCode()
+{
+    return 31 + id;
+}
+
 LibAction* Library::addLibAction()
 {
     LibAction* act = new LibAction();
