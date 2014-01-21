@@ -6,7 +6,7 @@ Information regarding the specification of this format is available online at ht
 
 License
 -------
-This Library is licensed under the GNU GPL v3 License for more information please read the included LICENSE file or visit http://www.gnu.org/licenses
+This library is licensed under the GNU GPL v3 License for more information please read the included LICENSE file or visit http://www.gnu.org/licenses
 
 Building
 -------
