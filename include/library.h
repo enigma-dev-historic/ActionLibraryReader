@@ -43,6 +43,7 @@ public:
     int id = 0;
     string tabCaption = "";
     bool advanced = false;
+    char* actionImages;
     vector<LibAction*> libActions;
 
     Library();

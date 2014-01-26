@@ -54,6 +54,17 @@ char* GmStreamDecoder::read(unsigned length) {
     return res;
 }
 
+char* GmStreamDecoder::readToEnd() {
+    unsigned size, pos;
+    pos = ftell(file);
+    fseek (file, 0, SEEK_END);   // non-portable
+    size = ftell(file);
+    fseek (file, pos, SEEK_SET);   // non-portable
+    char* res;
+    fread(&res, 1, size-pos, file);
+    return res;
+}
+
 int32_t GmStreamDecoder::read2()
 {
     int32_t res;

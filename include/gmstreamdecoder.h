@@ -39,6 +39,7 @@ public:
     void skip(unsigned length);
     int32_t read();
     char* read(unsigned length);
+    char* readToEnd();
     int32_t read2();
     int32_t read3();
     int32_t read4();

@@ -244,10 +244,11 @@ Library* LibManager::loadLgl(GmStreamDecoder* in)
                 && act->interfaceKind == INTERFACE_CODE) codeAction = act;
     }
     //TODO: Fix me, this code needs an image loader so that it knows how to divide up the subimages.
-    //For now just close the input stream.
-    in->close();
+    //For now just read the whole thing into a char[] array pointer in Library
+    lib->actionImages = in->readToEnd();
 
     /*
+    //This is code taken from LGM showing how to divide the images
     BufferedImage icons = ImageIO.read(in->getInputStream());
     int i = 0;
     int cc = icons.getWidth() / 24;
